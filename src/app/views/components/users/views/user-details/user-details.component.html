@@ -1,0 +1,25 @@
+<div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">username:{{userData?.username}}</h5>
+      <h5 class="card-title">userpassword:{{userData?.password}}</h5>
+      <h5 class="card-title">userphone:{{userData?.phone}}</h5>
+      <h5 class="card-title">userid:{{userData?.id}}</h5>
+      <h5 class="card-title">useremail:{{userData?.email}}</h5>
+      <h5 class="card-title">userfirstname&lastname{{userData?.name.firstname}} {{userData?.name.lastname}}</h5>
+      <p class="card-text">user name is {{userData?.username}} and address is 
+        <strong>{{userData?.address?.city}} {{userData?.address?.street}} 
+            {{userData?.address?.zipcode}}
+            {{userData?.address?.number}}
+            {{userData?.address?.geolocation.lat}}
+            {{userData?.address?.geolocation.long}}
+        </strong>
+        </p>
+
+    </div>
+  </div>
+
+
+
+  <div class="information_container">
+    <h2>user details information</h2>
+  </div>

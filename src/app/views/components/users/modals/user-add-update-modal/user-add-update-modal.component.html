@@ -1,0 +1,24 @@
+<form #myForm="ngForm" id="myForm" (ngSubmit)="onFormSubmit()">
+    <input type="text" hidden name="id" ngModel>
+    <input type="text" hidden name="__v" ngModel>
+    <input type="text" placeholder="username" ngModel name="username" class="form-input">
+    <input type="text" placeholder="password" ngModel name="password" class="form-input">
+    <input type="text" placeholder="email" ngModel name="email" class="form-input">
+    <input type="text" placeholder="phone" ngModel name="phone" class="form-input">
+    <ng-container ngModelGroup="address" class="form-group address-group">
+        <input type="text" placeholder="city" ngModel name="city" class="form-input">
+        <ng-container ngModelGroup="geolocation" class="form-group geo-group">
+            <input type="text" placeholder="lat" name="lat" ngModel class="form-input"> 
+            <input type="text" placeholder="long" name="long" ngModel class="form-input"> 
+        </ng-container>
+        <input type="text" placeholder="number" name="number" ngModel class="form-input">
+        <input type="text" placeholder="street" name="street" ngModel class="form-input">
+        <input type="text" placeholder="zipcode" name="zipcode" ngModel class="form-input">
+    </ng-container>
+    <ng-container ngModelGroup="name" class="form-group name-group">
+        <input type="text" placeholder="firstname" name="firstname" ngModel class="form-input">
+        <input type="text" placeholder="lastname" name="lastname" ngModel class="form-input">
+    </ng-container>
+
+    <button type="submit" class="w-100 btn btn-primary">submit</button>
+</form>

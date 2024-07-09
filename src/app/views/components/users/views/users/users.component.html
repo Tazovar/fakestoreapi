@@ -1,0 +1,21 @@
+<div class="users_filter_container">
+    <app-user-filter (fitlerTypeEmitter)="filterTypeEmitterSub($event)"></app-user-filter>
+</div>
+
+<div class="users_container">
+    <ng-container *ngIf="usersArray.length > 0;else userNotFound">
+        <ng-container *ngFor="let user of usersArray">
+            <app-user (deleteUserEmitter)="deleteUserEmitterSub($event)" [user]="user"></app-user>
+        </ng-container>
+    </ng-container>
+</div>
+
+<button class="btn btn-dark w-100" (click)="onShowMoreUserBtnClick()">more</button>
+
+
+<ng-template #userNotFound>
+<div class="user_not_found_container">
+    <h2>No Users Found</h2>
+    <p>Please add users to continue.</p>
+</div>
+</ng-template>
