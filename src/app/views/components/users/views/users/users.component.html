@@ -2,6 +2,9 @@
     <app-user-filter (fitlerTypeEmitter)="filterTypeEmitterSub($event)"></app-user-filter>
 </div>
 
+
+<button class="btn btn-primary w-100 mt-2" (click)="onAddBtnClick()">add</button>
+
 <div class="users_container">
     <ng-container *ngIf="usersArray.length > 0;else userNotFound">
         <ng-container *ngFor="let user of usersArray">

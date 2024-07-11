@@ -25,7 +25,8 @@ import { ProductFormComponent } from './views/components/products/components/pro
 import { MainComponent } from './views/main/main.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatDialogModule} from "@angular/material/dialog"
+import {MatDialogModule} from "@angular/material/dialog";
+import { ProductComponent } from './views/components/products/components/product/product.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import {MatDialogModule} from "@angular/material/dialog"
     ProductFormComponent,
     MainComponent,
     NavbarComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

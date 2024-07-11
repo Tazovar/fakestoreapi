@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-filter',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './product-filter.component.scss'
 })
 export class ProductFilterComponent {
+  @Output() sortTypeEmitter = new EventEmitter();
 
+  onSortBtnClick(sortType:any){
+this.sortTypeEmitter.emit(sortType)
+  }
 }

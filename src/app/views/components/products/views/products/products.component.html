@@ -1,1 +1,40 @@
-<p>products works!</p>
+
+
+<button (click)="onAddNewproductBtnClick()" class="btn btn-primary w-100 m-5">add new product</button>
+<div class="category_container d-flex w-100 gap-5 justify-content-center mt-5">
+    <ng-container *ngIf="categoriesArray.length > 0;else categoryArrayLengthError">
+        <ng-container *ngFor="let category of categoriesArray">
+            <button class="btn btn-dark w-25" (click)="onCategoryBtnClick(category)">{{category}}</button>
+        </ng-container>
+    </ng-container>
+</div>
+<div class="filter_container">
+    <app-product-filter (sortTypeEmitter)="sortTypeEmitterSub($event)"></app-product-filter>
+</div>
+<div class="products_main_container mt-3">
+    <ng-container *ngIf="productsArray.length > 0;else productNotFound">
+        <ng-container *ngFor="let product of productsArray">
+            <app-product (productUpdateEmitter)="productUpdateEmitterSub($event)" 
+            (productidEmitter)="productidEmitterSub($event)"
+             [product]="product"></app-product>
+        </ng-container>
+    </ng-container>
+</div>
+
+
+<button class="btn btn-dark w-100" (click)="onMoreBtnClick()">more</button>
+
+
+<ng-template #productNotFound>
+    <div class="user_not_found_container">
+        <h2>No product not Found</h2>
+        <p>Please add product to continue.</p>
+    </div>
+    </ng-template>
+
+<ng-template #categoryArrayLengthError>
+    <div class="user_not_found_container">
+        <h2>No product not Found</h2>
+        <p>Please add product to continue.</p>
+    </div>
+    </ng-template>

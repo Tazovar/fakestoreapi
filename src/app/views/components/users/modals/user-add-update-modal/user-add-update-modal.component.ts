@@ -15,10 +15,12 @@ constructor(private userService:UserService,
   @Inject(MAT_DIALOG_DATA) private dialogData:any,private dialogRef:MatDialogRef<any>){}
 userData:any
 ngOnInit(): void {
-  this.getUserById()
-  setTimeout(() => {
-    this.setData()
-  }, 500);
+  if(this.dialogData?.userId){
+    this.getUserById()
+    setTimeout(() => {
+      this.setData()
+    }, 500);
+  }
 }
   getUserById(){
 this.userService.getById(this.dialogData.userId)
@@ -35,10 +37,24 @@ console.log(this.userData);
   }
 
   onFormSubmit(){
-    this.userService.update(this.userData.id,this.myForm.value)
-    .subscribe((res) => {
-      this.formEmitter.emit(res)
-      this.dialogRef.close()
-    })
+
+    if(this.dialogData?.userId){
+      this.userService.update(this.userData.id,this.myForm.value)
+      .subscribe((res) => {
+        this.formEmitter.emit(res)
+        this.dialogRef.close()
+      })
+    }else{
+      this.userService.create(this.myForm.value)
+      .subscribe((res) => {
+        if(res?.id){
+            let newObject = {...this.myForm.value};
+            newObject.id = res.id
+            this.formEmitter.emit(newObject)
+            console.log(newObject, "new object");
+          this.dialogRef.close()
+        }
+      })
+    }
   }
 }

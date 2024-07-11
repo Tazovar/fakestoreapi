@@ -1,1 +1,13 @@
-<p>product-add-update-modal works!</p>
+<form #myForm="ngForm" id="myForm" (ngSubmit)="onFormSubmit()">
+    <input type="text" hidden name="id" ngModel>
+    <input type="text" placeholder="category" ngModel name="category" class="form-input">
+    <input type="text" placeholder="description" ngModel name="description" class="form-input">
+    <input type="text" placeholder="title" ngModel name="title" class="form-input">
+    <input type="text" placeholder="price" ngModel name="price" class="form-input">
+        <input type="text" placeholder="image" ngModel name="image" class="form-input">
+        <ng-container ngModelGroup="rating" class="form-group geo-group">
+            <input type="text" placeholder="rate" name="rate" ngModel class="form-input"> 
+            <input type="text" placeholder="count" name="count" ngModel class="form-input"> 
+        </ng-container>
+    <button type="submit" class="w-100 btn btn-primary">submit</button>
+</form>

@@ -1,0 +1,11 @@
+<div class="card mb-3 ">
+    <img  [src]="product?.image" class="card-img-top imagee m-auto" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product?.title.slice(0,25)}}</h5>
+      <p class="card-text">{{product?.description.slice(0,50)}}...</p>
+      <p class="card-text"><small class="text-body-secondary">{{product?.price | currency:'GEL'}}</small></p>
+      <button class="btn btn-primary w-50" (click)="onShowMoreBtnClick(product?.id)">show more</button>
+      <button class="btn btn-danger w-25 m-2" (click)="onDeleteBtnClick(product?.id)">delete</button>
+      <button class="btn btn-primary w-50" (click)="onUpdateBtnClick(product?.id)">update</button>
+    </div>
+  </div>
