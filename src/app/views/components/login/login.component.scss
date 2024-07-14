@@ -1,0 +1,30 @@
+
+.error-text{
+    color: red;
+    font-family: sans-serif;
+    font-size: 11px;
+    animation: error 0.5s;
+}
+
+input{
+    padding: 10px;
+    border: none;
+    outline: 1px solid transparent;
+}
+@keyframes error {
+    from{
+        transform: translateY(-10px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 50px;
+}

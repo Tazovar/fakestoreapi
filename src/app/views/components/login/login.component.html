@@ -1,0 +1,12 @@
+<form #loginForm="ngForm" class="form" (ngSubmit)="onFormSubmit(loginForm)">
+    <input type="text" placeholder="username" 
+    name="username" #usnmame="ngModel" class="form-item w-25" required ngModel>
+    <div class="error-text" *ngIf="usnmame.invalid && usnmame.dirty && usnmame.hasError('required')">
+        username is required
+    </div>
+    <input type="password" #pass="ngModel" placeholder="password" name="password" class="form-item w-25" required ngModel>
+    <div class="error-text" *ngIf="pass.invalid && pass.dirty && pass.hasError('required')">
+        username is required
+    </div>
+    <button type="submit" class="btn btn-primary w-25">submit</button>
+</form>

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { CartComponent } from './views/components/carts/components/cart/cart.component';
 import { CartFilterComponent } from './views/components/carts/components/cart-filter/cart-filter.component';
 import { CartFormComponent } from './views/components/carts/components/cart-form/cart-form.component';
@@ -26,7 +26,9 @@ import { MainComponent } from './views/main/main.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatDialogModule} from "@angular/material/dialog";
-import { ProductComponent } from './views/components/products/components/product/product.component'
+import { ProductComponent } from './views/components/products/components/product/product.component';
+import { LoginComponent } from './views/components/login/login.component'
+import { HeaderInterceptor } from './core/interseptors/http.interseptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +52,9 @@ import { ProductComponent } from './views/components/products/components/product
     MainComponent,
     NavbarComponent,
     ProductComponent,
+    LoginComponent,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -57,10 +62,16 @@ import { ProductComponent } from './views/components/products/components/product
     FormsModule,
     MatDialogModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:HeaderInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent]
 })
